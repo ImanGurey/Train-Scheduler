@@ -1,4 +1,4 @@
-$(document).ready(function () {
+
 
     // Initialize Firebase
     var firebaseConfig = {
@@ -10,7 +10,7 @@ $(document).ready(function () {
         messagingSenderId: "542022980177",
         appId: "1:542022980177:web:5ce80d7529578704"
     };
-    firebase.initializeApp(config);
+    firebase.initializeApp(firebaseConfig);
 
     var database = firebase.database();
 
@@ -78,4 +78,4 @@ $(document).ready(function () {
             console.log("Errors handled: " + errorObject.code);
         });
 
-}); //end document ready
+ //end document ready
