@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
 
-    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+    // Firebase watcher + initial loader : This code behaves similarly to .on("value")
     database.ref().on("child_added", function (childSnapshot) {
 
         var newTrain = childSnapshot.val().trainName;
