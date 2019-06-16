@@ -1,20 +1,34 @@
 
 
     // Initialize Firebase
-    var firebaseConfig = {
-        apiKey: "AIzaSyByq9RPC4mKM0YxaLH96_nDgyzaC3B2U6g",
-        authDomain: "train-scheduler-912eb.firebaseapp.com",
-        databaseURL: "https://train-scheduler-912eb.firebaseio.com",
-        projectId: "train-scheduler-912eb",
-        storageBucket: "train-scheduler-912eb.appspot.com",
-        messagingSenderId: "542022980177",
-        appId: "1:542022980177:web:5ce80d7529578704"
-    };
-    firebase.initializeApp(firebaseConfig);
+// <script>
+
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//     apiKey: "AIzaSyAInA05COssl8DL9M08qWxMPeZJ2N4KfsI",
+//     authDomain: "awsometrain-aa61e.firebaseapp.com",
+//     databaseURL: "https://awsometrain-aa61e.firebaseio.com",
+//     projectId: "awsometrain-aa61e",
+//     storageBucket: "awsometrain-aa61e.appspot.com",
+//     messagingSenderId: "196474254126",
+//     appId: "1:196474254126:web:7693fcd31bd51b08"
+// };
+var firebaseConfig = {
+    apiKey: "AIzaSyB00G4DN0gXBcuemtf2fygEC6juS_fozzk",
+    authDomain: "train-scheduler-59a85.firebaseapp.com",
+    databaseURL: "https://train-scheduler-59a85.firebaseio.com",
+    projectId: "train-scheduler-59a85",
+    storageBucket: "",
+    messagingSenderId: "222151815512",
+    appId: "1:222151815512:web:b3613ea0cdc759f4"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
     var database = firebase.database();
 
     // Capture Button Click
+
     $("#addTrain").on("click", function (event) {
         event.preventDefault();
 
@@ -35,7 +49,8 @@
 
 
     // Firebase watcher + initial loader : This code behaves similarly to .on("value")
-    database.ref().on("child_added", function (childSnapshot) {
+var dbRef = database.ref();
+    dbRef.on("child_added", function (childSnapshot) {
 
         var newTrain = childSnapshot.val().trainName;
         var newLocation = childSnapshot.val().destination;
@@ -75,7 +90,6 @@
     },
         //Handle the errors
         function (errorObject) {
-            console.log("Errors handled: " + errorObject.code);
+            console.log("Errors handled: " , errorObject);
         });
 
- //end document ready
