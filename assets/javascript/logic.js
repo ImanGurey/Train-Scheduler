@@ -1,18 +1,5 @@
+$(document).ready(function () {
 
-
-    // Initialize Firebase
-// <script>
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//     apiKey: "AIzaSyAInA05COssl8DL9M08qWxMPeZJ2N4KfsI",
-//     authDomain: "awsometrain-aa61e.firebaseapp.com",
-//     databaseURL: "https://awsometrain-aa61e.firebaseio.com",
-//     projectId: "awsometrain-aa61e",
-//     storageBucket: "awsometrain-aa61e.appspot.com",
-//     messagingSenderId: "196474254126",
-//     appId: "1:196474254126:web:7693fcd31bd51b08"
-// };
 var firebaseConfig = {
     apiKey: "AIzaSyB00G4DN0gXBcuemtf2fygEC6juS_fozzk",
     authDomain: "train-scheduler-59a85.firebaseapp.com",
@@ -28,7 +15,6 @@ firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
 
     // Capture Button Click
-
     $("#addTrain").on("click", function (event) {
         event.preventDefault();
 
@@ -48,9 +34,8 @@ firebase.initializeApp(firebaseConfig);
     });
 
 
-    // Firebase watcher + initial loader : This code behaves similarly to .on("value")
-var dbRef = database.ref();
-    dbRef.on("child_added", function (childSnapshot) {
+    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+    database.ref().on("child_added", function (childSnapshot) {
 
         var newTrain = childSnapshot.val().trainName;
         var newLocation = childSnapshot.val().destination;
@@ -90,6 +75,7 @@ var dbRef = database.ref();
     },
         //Handle the errors
         function (errorObject) {
-            console.log("Errors handled: " , errorObject);
+            console.log("Errors handled: " + errorObject.code);
         });
 
+}); //end document ready
